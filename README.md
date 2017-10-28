@@ -57,6 +57,10 @@ Alternately, [docker-compose](https://docs.docker.com/compose/) is just a tool f
     %> docker run -d --name elkapache --env-file=.env -p "5200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
     %> docker run -d -p "80:8080" drupal:latest
 
+If your going to analyse big logs, better to disable logstash logging when creating and running the container (flag: --log-driver=none):
+
+    docker run -d --name elkapache --log-driver=none --env-file=.env -p "8200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
+
 #### 5a. Adjust ES port, Kibana config:
 
     docker exec -it elkapache /bin/bash
@@ -90,6 +94,8 @@ You should now be able to go back and forth between [drupal](http://localhost:80
 [Logstach dashboard](http://localhost:5601/index.html#/dashboard/file/logstash.json)
 
 ### 9. Maintaince and used space
+
+If you haven't disabled logging when launching the container:
 
     docker inspect --format='{{.LogPath}}' elkapache | xargs sudo ls -lash
 
