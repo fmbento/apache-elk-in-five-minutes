@@ -64,8 +64,8 @@ Alternately, [docker-compose](https://docs.docker.com/compose/) is just a tool f
 
 Browse to...
 
-* elasticsearch: [http://localhost:9200]()
-* kibana: [http://localhost:9292]()
+* elasticsearch: [http://localhost:5600]()
+* kibana: [http://localhost:5601]()
 * drupal: [http://localhost:8080]()
 
 ### 7a. Hey, lets pipe our drupal apache logs into ELK!
