@@ -89,3 +89,13 @@ You should now be able to go back and forth between [drupal](http://localhost:80
 
 [Logstach dashboard](http://localhost:5601/index.html#/dashboard/file/logstash.json)
 
+### 9. Maintaince and used space
+
+    docker inspect --format='{{.LogPath}}' elkapache | xargs sudo ls -lash
+
+and if too big, prune it with
+
+    docker inspect --format='{{.LogPath}}' elkapache | xargs sudo tee
+
+
+
