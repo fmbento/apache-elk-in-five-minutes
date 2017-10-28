@@ -26,7 +26,7 @@ Not going to go into details here on docker installation, but there are many opt
 
 ### 1. Clone this repo
 
-1. `git clone https://github.com/lbjay/apache-elk-in-five-minutes.git`
+1. `git https://github.com/fmbento/apache-elk-in-five-minutes.git`
 1. `cd apache-elk-in-five-minutes`
 
 ### 2. Make & activate a virtualenv (optional but recommended)
