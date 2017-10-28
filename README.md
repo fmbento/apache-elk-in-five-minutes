@@ -54,7 +54,7 @@ LOGSTASH_CONFIG_URL=https://gist.githubusercontent.com/lbjay/98a62625f9a5570f8c1
 
 Alternately, [docker-compose](https://docs.docker.com/compose/) is just a tool for orchestrating multiple docker containers, so you can also just execute directly like so...
 
-    %> docker run -d --name elkapache --env-file=.env -p "5601:9200" -p "9292:9292" -p "3333:3333" pblittle/docker-logstash
+    %> docker run -d --name elkapache --env-file=.env -p "5200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
     %> docker run -d -p "80:8080" drupal:latest
 
 
