@@ -81,9 +81,11 @@ Browse to...
 
 ### 7b. Or pipe an apache log file from somewhere else into logstash
 
-`cat access_log | nc localhost 3333`
+`cat /var/log/apache2/access.log | nc localhost 3333`
 
 ### 8. Kibana
 
 You should now be able to go back and forth between [drupal](http://localhost:8080) and [kibana](http://localhost:5601) and see the drupal apache log events populating the default dashboard.
+
+[Logstach dashboard](http://localhost:5601/index.html#/dashboard/file/logstash.json)
 
