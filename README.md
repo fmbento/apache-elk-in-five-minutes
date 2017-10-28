@@ -57,6 +57,12 @@ Alternately, [docker-compose](https://docs.docker.com/compose/) is just a tool f
     %> docker run -d --name elkapache --env-file=.env -p "5200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
     %> docker run -d -p "80:8080" drupal:latest
 
+#### 5a. Adjust ES port, Kibana config:
+
+    docker exec -it elkapache /bin/bash
+    root@21afd475079d:/opt/logstash# sed -i 's/9200/8200/g' ./vendor/kibana/config.js
+    root@21afd475079d:/opt/logstash# exit
+    docker restart elkapache
 
 ### 6. Check that the services are running
 
