@@ -43,7 +43,7 @@ Either `pip install -r requirements.txt` or `pip install docker-compose`
 Create a file called `.env` with the following contents:
 
 ```
-LOGSTASH_CONFIG_URL=https://gist.githubusercontent.com/lbjay/98a62625f9a5570f8c15/raw/226ee25afbd60b27b9b00ae74c0cd2d03c2f1b01/logstash.conf
+LOGSTASH_CONFIG_URL=https://raw.githubusercontent.com/fmbento/apache-elk-in-five-minutes/master/logstash.conf
 ```
 
 ### 5. Run the container
@@ -79,5 +79,5 @@ Browse to...
 
 ### 8. Kibana
 
-You should now be able to go back and forth between [drupal](http://localhost:8080) and [kibana](http://localhost:9292) and see the drupal apache log events populating the default dashboard.
+You should now be able to go back and forth between [drupal](http://localhost:8080) and [kibana](http://localhost:5601) and see the drupal apache log events populating the default dashboard.
 
