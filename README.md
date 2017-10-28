@@ -14,15 +14,10 @@ In this demo we are going to spin up the following applications:
 with only a 12-line yaml file and one command!
 
 #### Dependencies
-* docker (i'm using v1.4.1)
+* docker
 * netcat, or one of it's ilk (nc, ncat, socat)
 
-Not going to go into details here on docker installation, but there are many options:
-
-* on linux you can most likely use your favorite package manager
-* on mac (I think) you'll need something called [boot2docker](http://boot2docker.io/)
-* install into a vagrant vm
-* even Windows! (but don't ask me how!)
+Not going to go into details here on docker installation, though.
 
 ### 1. Clone this repo
 
@@ -48,20 +43,17 @@ LOGSTASH_CONFIG_URL=https://raw.githubusercontent.com/fmbento/apache-elk-in-five
 
 ### 5. Run the container
 
-[docker-compose](https://docs.docker.com/compose/)  makes this easy. Just run...
-
-    %> docker-compose up -d
-
-Alternately, [docker-compose](https://docs.docker.com/compose/) is just a tool for orchestrating multiple docker containers, so you can also just execute directly like so...
-
     %> docker run -d --name elkapache --env-file=.env -p "5200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
+
+If you want just test it with a ad-hoc service, you could try drupal with:
+
     %> docker run -d -p "80:8080" drupal:latest
 
 If your going to analyse big logs, better to disable logstash logging when creating and running the container (flag: --log-driver=none):
 
     docker run -d --name elkapache --log-driver=none --env-file=.env -p "8200:9200" -p "5601:9292" -p "3333:3333" pblittle/docker-logstash
 
-#### 5a. Adjust ES port, Kibana config:
+#### 5a. Adjust ES port, Kibana config, if you are already using another ES (port 9200):
 
     docker exec -it elkapache /bin/bash
     root@21afd475079d:/opt/logstash# sed -i 's/9200/8200/g' ./vendor/kibana/config.js
@@ -78,10 +70,10 @@ Browse to...
 * kibana: [http://localhost:5601]()
 * drupal: [http://localhost:8080]()
 
-### 7a. Hey, lets pipe our drupal apache logs into ELK!
+### 7a. Just testing? Lets pipe our drupal apache logs into ELK!
 
 1. get the drupal container id from `docker ps`.
-1. run `docker logs -f [container_id] 2>&1 | nc localhost 3333`
+2. run `docker logs -f [container_id] 2>&1 | nc localhost 3333`
 
 ### 7b. Or pipe an apache log file from somewhere else into logstash
 
