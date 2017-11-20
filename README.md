@@ -1,4 +1,4 @@
-## Apache Log Analysis in 5 Mintues with ELK & Docker
+## Apache Log Analysis in 5 Minutes with ELK & Docker
 
 (ELK: Elasticsearch, Logstash & Kibana)
 
